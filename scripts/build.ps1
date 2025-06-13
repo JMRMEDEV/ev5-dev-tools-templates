@@ -4,7 +4,7 @@
 Set-Location -Path (Join-Path $PSScriptRoot "..")
 
 # === Configuration ===
-$Include = "..\..\compiler\includeRTOSEV5"
+$Include = "$env:EV5_SDK\includeRTOSEV5"
 $ObjectDir = "$Include\o"
 $LinkerScript = "$ObjectDir\stm32_flash.ld"
 $Program = "main"

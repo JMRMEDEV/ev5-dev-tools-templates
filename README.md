@@ -4,13 +4,17 @@ The included `scripts/` dir contains different os' scripts for being able to com
 
 ## Prerequisites
 
+- Have downloaded official **Kazi-Scratch** from the sdk provided by your **Kazi-EV5** provider. **Linux Users**: you might need to somehow install the `.exe` file to get the **installation content**.
+- Create a `ev5-sdk/` directory somewhere safe (**e.g.** `C:\ev5-sdk`).
+- Locate your directory **Kazi-Scratch** installation directory (**e.g.** `C:\Program Files (x86)\Scratch2-KAZI`) and in there we have to identify `compilers` subdirectory and grab `includeRTOSEV5` which we will copy to our `ev5-sdk/` directory.
+- Expose `ev5-sdk/` as an **environment variable**, so we can access such **path** anywhere in the system.
 - Have **arm-none-eabi** installed and available as an **environment variable** (see [**Notes**](#notes) section for more info).
 - Have **RTOSEV5** lib available two levels above `<filename>.c`.
 
 ## Windows
 
 1. Open with VS code.
-2. The root dir where we place the `<filename>.c` file (e.g. `main.c`) should have a `compiler` two levels above for this to work.
+2. The root dir where we place the `<filename>.c` file (**e.g.** `main.c`) should have a `compiler` two levels above for this to work.
 3. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\build.ps1` the whole process should complete, generating our expected `.bin` file which must be placed on **EV5 memory**.
 
 ## Notes
@@ -71,4 +75,4 @@ This program has absolutely no warranty.
 
 #### Next Steps
 
-- To access **RTOSEV5** at system level somehow, as well.
+- To create our own `RTOSEV5` include lib, so we can make it open source.
