@@ -75,4 +75,5 @@ This program has absolutely no warranty.
 
 #### Next Steps
 
+- To test which newer **arm-none-eabi** versions could be compatible with **EV5**.
 - To create our own `RTOSEV5` include lib, so we can make it open source.
