@@ -4,14 +4,13 @@
 Set-Location -Path (Join-Path $PSScriptRoot "..")
 
 # === Configuration ===
-$Toolchain = "..\..\compiler\ARM\bin"
 $Include = "..\..\compiler\includeRTOSEV5"
 $ObjectDir = "$Include\o"
 $LinkerScript = "$ObjectDir\stm32_flash.ld"
 $Program = "main"
 
-$CC = "$Toolchain\arm-none-eabi-gcc.exe"
-$OBJCOPY = "$Toolchain\arm-none-eabi-objcopy.exe"
+$CC = "arm-none-eabi-gcc"
+$OBJCOPY = "arm-none-eabi-objcopy"
 
 # Include directories (add more if needed)
 $IncludeFlags = @(
