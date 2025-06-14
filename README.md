@@ -1,8 +1,10 @@
-# EV5 compiling script
+# EV5 DEV Scripts
 
-The included `scripts/` dir contains different os' scripts for being able to compile `.bin` builds that can be run in Kazi EV5. 
+The included `scripts/` dir contains different os' scripts for being able to compile `.bin` builds that can be run in Kazi EV5 as well as scripts for **uploading** such files through USB. 
 
 ## Prerequisites
+
+## Compiling
 
 - Have downloaded official **Kazi-Scratch** from the sdk provided by your **Kazi-EV5** provider. **Linux Users**: you might need to somehow install the `.exe` file to get the **installation content**.
 - Create a `ev5-sdk/` directory somewhere safe (**e.g.** `C:\ev5-sdk`).
@@ -10,6 +12,17 @@ The included `scripts/` dir contains different os' scripts for being able to com
 - Expose `ev5-sdk/` as an **environment variable**, so we can access such **path** anywhere in the system.
 - Have **arm-none-eabi** installed and available as an **environment variable** (see [**Notes**](#notes) section for more info).
 - Have **RTOSEV5** lib available two levels above `<filename>.c`.
+
+## Uploading
+
+### USB
+
+- Plugged in the EV5 to PC through USB.
+- Have turned the EV5 brick on and hit the **Download** button.
+
+## Next Steps
+
+- Implement **WiFi** program upload.
 
 ## Windows
 
