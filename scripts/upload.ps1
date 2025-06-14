@@ -1,8 +1,14 @@
-# upload-usb.ps1 — Copy compiled .bin file to EV5 USB device
+# upload.ps1 — Upload .bin file to EV5 USB device using --program=XYZ syntax
 
-# === Configuration ===
-$BinFile = "main.bin"
-$TargetFile = "main.bin"  # Could be renamed if needed
+# Default to 'main' if no --program=... provided
+$Program = "main"
+
+# === Parse CLI args (e.g. --program=robotLogic) ===
+foreach ($arg in $args) {
+    if ($arg -like "--program=*") {
+        $Program = $arg -replace "^--program=", ""
+    }
+}
 
 # === Locate EV5 USB Drive ===
 $ev5Drive = Get-Volume | Where-Object { $_.FileSystemLabel -eq "EV5" }
@@ -13,15 +19,16 @@ if ($ev5Drive -eq $null) {
 }
 
 $driveLetter = $ev5Drive.DriveLetter + ":"
-$destination = Join-Path $driveLetter $TargetFile
+$sourceFile = "$Program.bin"
+$destination = Join-Path $driveLetter "$Program.bin"
 
 # === Copy File ===
-if (!(Test-Path $BinFile)) {
-    Write-Host "ERROR: Binary file '$BinFile' not found. Please build it first."
+if (!(Test-Path $sourceFile)) {
+    Write-Host "ERROR: Binary file '$sourceFile' not found. Please build it first."
     exit 1
 }
 
-Write-Host "Copying '$BinFile' to '$destination'..."
-Copy-Item -Path $BinFile -Destination $destination -Force
+Write-Host "Copying '$sourceFile' to '$destination'..."
+Copy-Item -Path $sourceFile -Destination $destination -Force
 
 Write-Host "Upload complete."

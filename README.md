@@ -4,7 +4,7 @@ The included `scripts/` dir contains different os' scripts for being able to com
 
 ## Prerequisites
 
-## Compiling
+### Compiling
 
 - Have downloaded official **Kazi-Scratch** from the sdk provided by your **Kazi-EV5** provider. **Linux Users**: you might need to somehow install the `.exe` file to get the **installation content**.
 - Create a `ev5-sdk/` directory somewhere safe (**e.g.** `C:\ev5-sdk`).
@@ -13,22 +13,30 @@ The included `scripts/` dir contains different os' scripts for being able to com
 - Have **arm-none-eabi** installed and available as an **environment variable** (see [**Notes**](#notes) section for more info).
 - Have **RTOSEV5** lib available two levels above `<filename>.c`.
 
-## Uploading
+### Uploading
 
-### USB
+#### USB
 
 - Plugged in the EV5 to PC through USB.
 - Have turned the EV5 brick on and hit the **Download** button.
 
-## Next Steps
+### Next Steps
 
 - Implement **WiFi** program upload.
 
 ## Windows
 
-1. Open with VS code.
-2. The root dir where we place the `<filename>.c` file (**e.g.** `main.c`) should have a `compiler` two levels above for this to work.
-3. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\build.ps1` the whole process should complete, generating our expected `.bin` file which must be placed on **EV5 memory**.
+### Compiling
+
+1. Open project directory with VS code.
+2. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\build.ps1` the whole process should complete, generating our expected `.bin` file which must be placed on **EV5 memory**.
+3. (**Optional**) If we have a name different from `main.c`, we have to pass the program name as a parameter. **E.g.**: For a file called `test.c`, we would have to execute as `.\scripts\build.ps1 --program=test`.
+
+### Uploading
+
+1. Open project directory with VS code.
+2. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\upload.ps1` the whole process should complete. Copying our expected `.bin` file on **EV5 memory**.
+3. (**Optional**) If we have a name different from `main.c`, we have to pass the program name as a parameter. **E.g.**: For a file called `test.c`, we would have to execute as `.\scripts\upload.ps1 --program=test`.
 
 ## Notes
 
