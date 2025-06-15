@@ -1,10 +1,23 @@
-# EV5 DEV Scripts
+# EV5 DEV Tools Template
 
-The included `scripts/` dir contains different os' scripts for being able to compile `.bin` builds that can be run in Kazi EV5 as well as scripts for **uploading** such files through USB. 
+All the included tools allow us to quickly and easily develop applicacions in **ANSI C** without the need of **Scratch** software, meant for more adavanced developers who want to get all from **KAZI EV5** brick.
 
-## Prerequisites
+Such tools include:
 
-### Compiling
+- VS Code **settings**
+- Util automated scripts
+- A sample `main.c` file that can get you started.
+
+## Scripts
+
+The included `scripts/` dir contains different os' scripts that allow us to:
+
+- **Compile** `.c` programs (in `.bin` format) that can be run in **Kazi EV5**
+- **Upload** `.bin` files to **Kazi EV5** through USB. 
+
+### Prerequisites
+
+#### Compiling
 
 - Have downloaded official **Kazi-Scratch** from the sdk provided by your **Kazi-EV5** provider. **Linux Users**: you might need to somehow install the `.exe` file to get the **installation content**.
 - Create a `ev5-sdk/` directory somewhere safe (**e.g.** `C:\ev5-sdk`).
@@ -13,26 +26,26 @@ The included `scripts/` dir contains different os' scripts for being able to com
 - Have **arm-none-eabi** installed and available as an **environment variable** (see [**Notes**](#notes) section for more info).
 - Have **RTOSEV5** lib available two levels above `<filename>.c`.
 
-### Uploading
+#### Uploading
 
-#### USB
+**USB**
 
 - Plugged in the EV5 to PC through USB.
 - Have turned the EV5 brick on and hit the **Download** button.
 
-### Next Steps
+**WiFi**
 
-- Implement **WiFi** program upload.
+- To be implented.
 
-## Windows
+### Use
 
-### Compiling
+#### Compiling
 
 1. Open project directory with VS code.
 2. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\build.ps1` the whole process should complete, generating our expected `.bin` file which must be placed on **EV5 memory**.
 3. (**Optional**) If we have a name different from `main.c`, we have to pass the program name as a parameter. **E.g.**: For a file called `test.c`, we would have to execute as `.\scripts\build.ps1 --program=test`.
 
-### Uploading
+#### Uploading
 
 1. Open project directory with VS code.
 2. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\upload.ps1` the whole process should complete. Copying our expected `.bin` file on **EV5 memory**.
@@ -44,7 +57,9 @@ Please, consider following notes on your dev workflow.
 
 ### Intended use
 
-These scripts were created to mimic our working commands:
+#### Compiling
+
+These scripts were created to mimic our working commands that we tested with the compiler:
 
 1. `.o` file creation:
 
@@ -65,6 +80,8 @@ These scripts were created to mimic our working commands:
 ```
 
 ### Linux Support
+
+#### Scripts
 
 We are currently working on a bash script that accomplishes what the **PowerShell** one does.
 
@@ -94,7 +111,8 @@ This program has absolutely no warranty.
 ```
 - We installed practically the same version from https://launchpad.net/gcc-arm-embedded/+download?direction=backwards&memo=10
 
-#### Next Steps
+### Next Steps
 
+- Be able to **upload** programs to EV5 through **WiFi**.
+- Add full Linux support.
 - To test which newer **arm-none-eabi** versions could be compatible with **EV5**.
-- To create our own `RTOSEV5` include lib, so we can make it open source.

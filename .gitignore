@@ -1,0 +1,4 @@
+# Non-source files
+*.o
+*.elf
+*.bin
