@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "EV5 SDK",
+      "includePath": [
+        "${env:EV5_SDK}/includeRTOSEV5"
+      ],
+      "defines": [
+        "F_CPU=72000000UL"
+      ],
+      "compilerPath": "arm-none-eabi-gcc",
+      "cStandard": "gnu99",
+      "intelliSenseMode": "gcc-arm"
+    }
+  ],
+  "version": 4
+}
