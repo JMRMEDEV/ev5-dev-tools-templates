@@ -1,6 +1,8 @@
 # EV5 DEV Tools Template
 
-All the included tools allow us to quickly and easily develop applicacions in **ANSI C** without the need of **Scratch** software, meant for more adavanced developers who want to get all from **KAZI EV5** brick.
+These tools make it easy to develop applications for the KAZI EV5 brick using ANSI C, without relying on the proprietary Scratch software.
+
+Designed for more advanced developers who want full control over the EV5's capabilities.
 
 Such tools include:
 
@@ -20,8 +22,8 @@ The included `scripts/` dir contains different os' scripts that allow us to:
 #### Compiling
 
 - Have downloaded official **Kazi-Scratch** from the sdk provided by your **Kazi-EV5** provider. **Linux Users**: you might need to somehow install the `.exe` file to get the **installation content**.
-- Create a `ev5-sdk/` directory somewhere safe (**e.g.** `C:\ev5-sdk`).
-- Locate your directory **Kazi-Scratch** installation directory (**e.g.** `C:\Program Files (x86)\Scratch2-KAZI`) and in there we have to identify `compilers` subdirectory and grab `includeRTOSEV5` which we will copy to our `ev5-sdk/` directory.
+- Create a directory named `ev5-sdk` somewhere safe (e.g., `C:\ev5-sdk`).
+- Locate the Kazi-Scratch installation directory (e.g., `C:\Program Files (x86)\Scratch2-KAZI`), then find the compiler subdirectory and copy the includeRTOSEV5 folder into your `ev5-sdk/` directory.
 - Expose `ev5-sdk/` as an **environment variable**, so we can access such **path** anywhere in the system.
 - Have **arm-none-eabi** installed and available as an **environment variable** (see [**Notes**](#notes) section for more info).
 - Have **RTOSEV5** lib available two levels above `<filename>.c`.
@@ -42,7 +44,7 @@ The included `scripts/` dir contains different os' scripts that allow us to:
 #### Compiling
 
 1. Open project directory with VS code.
-2. By opening **PowerShell** at the same place than `<filename>.c` file and then typing `.\scripts\build.ps1` the whole process should complete, generating our expected `.bin` file which must be placed on **EV5 memory**.
+2. Open PowerShell in the same directory as your `<filename>.c`, which will be placed in the EV5’s internal memory via **upload**.
 3. (**Optional**) If we have a name different from `main.c`, we have to pass the program name as a parameter. **E.g.**: For a file called `test.c`, we would have to execute as `.\scripts\build.ps1 --program=test`.
 
 #### Uploading
@@ -87,7 +89,7 @@ We are currently working on a bash script that accomplishes what the **PowerShel
 
 ### Compiler
 
-We know are able to use the **arm-non-eabi** compiler that came from an original source, rather than using the version originally packed with **KAZI-Scratch**.
+The project now supports using the officially distributed `arm-none-eabi` compiler, instead of relying on the version bundled with **Kazi-Scratch**.
 
 As reference, this was the original compiler version: 
 
@@ -113,6 +115,6 @@ This program has absolutely no warranty.
 
 ### Next Steps
 
-- Be able to **upload** programs to EV5 through **WiFi**.
-- Add full Linux support.
-- To test which newer **arm-none-eabi** versions could be compatible with **EV5**.
+- Enable support for uploading programs via **WiFi**
+- Add full **Linux** compatibility
+- Test and document compatibility with **newer versions of `arm-none-eabi`**
